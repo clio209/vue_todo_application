@@ -13,7 +13,7 @@
     </h1>
     <ul class="todo-list">
       <li v-for="(todo, index) in todos" :class="{completed: todo.completed, editing: todo == editedTodo}">
-      <div class="view">
+    <div class="view">
         <input type="checkbox" v-model="todo.isDone">
         <lavel :class="{done: todo.isDone}" @dblclick="editTodo(todo)">{{ todo.title }}</lavel>
         <span @click="editTodo(todo)" class="command"> [編集] </span>
