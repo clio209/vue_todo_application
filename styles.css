@@ -47,6 +47,7 @@ body {
   float: right;
 }
 
+
 .todo-list li.editing .edit {
 	display: block;
 }

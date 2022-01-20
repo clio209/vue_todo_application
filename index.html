@@ -26,7 +26,7 @@
         @blur="doneEdit(todo)"
         v-todo-focus="todo == editedTodo">
       </li>
-      <li v-show="!todos.length">Todoは一つもありません！</li>
+      <li v-show="!todos.length">Todoは一つもありません。</li>
     </ul>
     <form @submit.prevent="addItem">
       <input type="text" v-model="newItem">
