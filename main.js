@@ -1,18 +1,10 @@
- const app = Vue.createApp({
+  const app = Vue.createApp({
     data()  {
       return {
       newItem: '',
       editedTodo: null,
       beforeEditCache: '',
       todos: []
-      }
-    },
-    watch: {
-      todos: {
-        handler: function () {
-          localStorage.setItem('todos', JSON.stringify(this.todos))
-        },
-        deep: true
       }
     },
     mounted: function () {
@@ -25,11 +17,13 @@
           isDone: false
         }
         this.todos.push(item)
+        localStorage.setItem('todos', JSON.stringify(this.todos))
         this.newItem = ''
       },
       deleteItem: function (index) {
         if (confirm('削除していいですか?')) {
           this.todos.splice(index, 1)
+          localStorage.setItem('todos', JSON.stringify(this.todos))
         }
       },
       editTodo: function (todo) {
@@ -44,12 +38,13 @@
         const title = todo.title.trim()
         if (title) {
           todo.title = title
+          localStorage.setItem('todos', JSON.stringify(this.todos))
         }
       },
       cancelEdit: function (todo) {
         this.editedTodo = null
         todo.title = this.beforeEditCache
-      }
+      },
     },
     computed: {
       remaining: function () {
