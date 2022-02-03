@@ -45,6 +45,14 @@
         this.editedTodo = null
         todo.title = this.beforeEditCache
       },
+      changeEvent: function(e,todo) {
+
+        console.log(e)
+        console.log(e.target.checked)
+        todo.isDone = e.target.checked
+        console.log (todo.isDone)
+        localStorage.setItem('todos', JSON.stringify(this.todos))
+      }
     },
     computed: {
       remaining: function () {
